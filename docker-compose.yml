@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: code_vibe_db
+    environment:
+      POSTGRES_DB: codeVibe
+      POSTGRES_USER: codeVibe  
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5555:5432" 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data 
+
+volumes:
+  postgres_data:
