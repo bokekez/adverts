@@ -4,6 +4,8 @@ import codeVibe.task.repository.AdvertsDAO;
 import codeVibe.task.repository.UserDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import codeVibe.task.service.AdvertsService;
+import codeVibe.task.service.UserService;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -14,7 +16,6 @@ public class Services {
 
     private final DataSource dataSource;
 
-    // Inject the DataSource bean in the constructor
     public Services(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -49,9 +50,4 @@ public class Services {
         return new UserService(userDAO);
     }
 
-    public void performServiceTasks() {
-        AdvertsService advertsService = advertsService(advertsDAO());
-        UserService userService = userService(userDAO());
-        System.out.println("Running services");
-    }
 }

@@ -13,8 +13,8 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    // Fetch all users with optional sorting by any column
-    public List<Users> getAllUsers(String sortBy) {
+      // Fetch all users with optional sorting by any column
+      public List<Users> getAllUsers(String sortBy) {
         return userDAO.getAllUsers(sortBy);
     }
 

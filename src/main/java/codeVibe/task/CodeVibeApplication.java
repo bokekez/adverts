@@ -23,35 +23,16 @@ public class CodeVibeApplication {
 	@Value("${spring.datasource.password}")
 	private String connectionPassword;
 
-	// @Bean
-	// public AuthenticationManager noopAuthenticationManager() {
-	// 		return authentication -> {
-	// 				throw new AuthenticationServiceException("Authentication is disabled");
-	// 		};
-	// }
-
-	// @Bean
-	// public UserDAO userDAO() {
-	// 		return new UserDAO();
-	// }
-
-	// @Bean
-	// public UserService userService(UserDAO userDAO) {
-  //       return new UserService(userDAO);
-  // }
-
 	public static void main(String[] args) {
 		SpringApplication.run(CodeVibeApplication.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner run(Migration migration, RunSeeder runSeeder, Services service) {
+	public CommandLineRunner run(Migration migration, RunSeeder runSeeder) {
 		return args -> {
 			migration.createTables();
 			runSeeder.insertSeeds();
-			service.performServiceTasks();
 		};
 	}
-
 
 }
