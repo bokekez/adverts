@@ -21,7 +21,9 @@ import java.io.IOException;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private final JwtTokenUtil jwtTokenUtil;
-    private final UserDetailsService userDetailsService;
+    
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Autowired
     public JwtRequestFilter(JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService) {
@@ -44,7 +46,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 Claims claims = jwtTokenUtil.extractAllClaims(jwtToken);
                 username = claims.getSubject();
             } catch (Exception e) {
-                // Handle token parsing exceptions
                 e.printStackTrace();
             }
         }

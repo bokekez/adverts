@@ -70,7 +70,7 @@ public class UserController {
       System.out.println("we in route");
         Users newUser = new Users();
         newUser.setUsername(registrationRequest.getUsername());
-        newUser.setPassword(registrationRequest.getPassword()); // You should hash the password before saving
+        newUser.setPassword(registrationRequest.getPassword()); 
         newUser.setEmail(registrationRequest.getEmail());
         
         Users createdUser = userService.createUser(newUser);

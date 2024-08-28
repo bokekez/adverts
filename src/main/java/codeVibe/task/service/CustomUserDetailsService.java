@@ -18,7 +18,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = userDAO.findByUsername(username)
-                            .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
+                        .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), "{noop}" + user.getPassword(), new ArrayList<>());
     }
 }
