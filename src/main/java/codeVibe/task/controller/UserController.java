@@ -3,6 +3,7 @@ package codeVibe.task.controller;
 import codeVibe.task.model.Users;
 import codeVibe.task.dtos.AuthenticationRequest;
 import codeVibe.task.dtos.AuthenticationResponse;
+import codeVibe.task.dtos.RegistrationRequest;
 import codeVibe.task.service.UserService;
 import codeVibe.task.config.JwtTokenUtil;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,17 +22,18 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+    private final JwtTokenUtil jwtTokenUtil;
+    private final UserDetailsService userDetailsService;
+    private final UserService userService;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    private UserService userService;
+    public UserController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, UserDetailsService userDetailsService, UserService userService) {
+        this.authenticationManager = authenticationManager;
+        this.jwtTokenUtil = jwtTokenUtil;
+        this.userDetailsService = userDetailsService;
+        this.userService = userService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Users>> getAllUsers(@RequestParam(value = "sortBy", required = false) String sortBy) {
@@ -56,11 +58,23 @@ public class UserController {
         Users updatedUser = userService.updateUser(id, user);
         return ResponseEntity.ok(updatedUser);
     }
-  
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody RegistrationRequest registrationRequest) {
+      System.out.println("we in route");
+        Users newUser = new Users();
+        newUser.setUsername(registrationRequest.getUsername());
+        newUser.setPassword(registrationRequest.getPassword()); // You should hash the password before saving
+        newUser.setEmail(registrationRequest.getEmail());
+        
+        Users createdUser = userService.createUser(newUser);
+        return ResponseEntity.status(201).body(createdUser);
     }
 
     @PostMapping("/login")
@@ -72,6 +86,7 @@ public class UserController {
 
         return ResponseEntity.ok(new AuthenticationResponse(token));
     }
+
     private void authenticate(String username, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
