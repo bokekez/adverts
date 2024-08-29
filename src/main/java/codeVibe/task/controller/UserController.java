@@ -96,7 +96,9 @@ public class UserController {
         newUser.setEmail(registrationRequest.getEmail());
 
         Users createdUser = userService.createUser(newUser);
-        return ResponseEntity.status(201).body(createdUser);
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(registrationRequest.getUsername());
+        final String token = jwtTokenUtil.generateToken(userDetails);
+        return ResponseEntity.ok(new AuthenticationResponse(token));
     }
 
     @PostMapping("/login")
