@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import org.springframework.stereotype.Component;
 
 import jakarta.servlet.FilterChain;
@@ -40,8 +41,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String username = null;
         String jwtToken = null;
 
-        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            jwtToken = authorizationHeader.substring(7); // Remove "Bearer " prefix
+        if (authorizationHeader != null) {
+            jwtToken = authorizationHeader.substring(7); 
             try {
                 Claims claims = jwtTokenUtil.extractAllClaims(jwtToken);
                 username = claims.getSubject();
@@ -55,7 +56,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
             if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities());
+                        userDetails, null, userDetails.getAuthorities());     
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
