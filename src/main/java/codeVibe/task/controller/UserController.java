@@ -18,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.BadCredentialsException;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -39,51 +38,31 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Users>> getAllUsers(@RequestParam(value = "sortBy", required = false) String sortBy, HttpServletRequest request) {
-        if (!validateJwt(request)) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-        }
-
+    public ResponseEntity<List<Users>> getAllUsers(@RequestParam(value = "sortBy", required = false) String sortBy) {
         List<Users> users = userService.getAllUsers(sortBy);
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Users> getUserById(@PathVariable Long id, HttpServletRequest request) {
-        if (!validateJwt(request)) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-        }
-
+    public ResponseEntity<Users> getUserById(@PathVariable Long id) {
         Users user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
     @PostMapping
-    public ResponseEntity<Users> createUser(@RequestBody Users user, HttpServletRequest request) {
-        if (!validateJwt(request)) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-        }
-
+    public ResponseEntity<Users> createUser(@RequestBody Users user) {
         Users createdUser = userService.createUser(user);
         return ResponseEntity.status(201).body(createdUser);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Users> updateUser(@PathVariable Long id, @RequestBody Users user, HttpServletRequest request) {
-        if (!validateJwt(request)) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-        }
-
+    public ResponseEntity<Users> updateUser(@PathVariable Long id, @RequestBody Users user) {
         Users updatedUser = userService.updateUser(id, user);
         return ResponseEntity.ok(updatedUser);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id, HttpServletRequest request) {
-        if (!validateJwt(request)) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
-
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
@@ -121,28 +100,4 @@ public class UserController {
         }
     }
 
-    private boolean validateJwt(HttpServletRequest request) {
-        final String requestTokenHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-
-        String jwtToken = null;
-        String username = null;
-
-        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
-            jwtToken = requestTokenHeader.substring(7);
-            try {
-                username = jwtTokenUtil.extractUsername(jwtToken);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Unable to get JWT Token");
-            }
-        } else {
-            System.out.println("JWT Token does not begin with Bearer String");
-        }
-
-        if (username != null) {
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-            return jwtTokenUtil.validateToken(jwtToken, userDetails);
-        }
-
-        return false;
-    }
 }
