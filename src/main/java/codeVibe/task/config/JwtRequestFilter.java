@@ -41,7 +41,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String username = null;
         String jwtToken = null;
 
-        if (authorizationHeader != null) {
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwtToken = authorizationHeader.substring(7); 
             try {
                 Claims claims = jwtTokenUtil.extractAllClaims(jwtToken);
@@ -49,6 +49,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else if (authorizationHeader != null && authorizationHeader.startsWith("Basic ")) {
+            chain.doFilter(request, response);
+            return;
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {

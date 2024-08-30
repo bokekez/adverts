@@ -10,6 +10,18 @@
 			"item": [
 				{
 					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"jwtToken\", jsonData.jwtToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer"
@@ -62,9 +74,7 @@
 							"script": {
 								"exec": [
 									"var jsonData = pm.response.json();",
-									"console.log(\"log:\", jsonData);",
-									"pm.environment.set(\"jwtToken\", jsonData.jwtToken);",
-									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+									"pm.environment.set(\"jwtToken\", jsonData.jwtToken);"
 								],
 								"type": "text/javascript"
 							}
@@ -85,7 +95,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"username\": \"testuser22\",\n  \"password\": \"testpassword22\"\n}",
+							"raw": "{\n  \"username\": \"Admin\",\n  \"password\": \"Admin\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -526,6 +536,273 @@
 							"port": "8080",
 							"path": [
 								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Adverts Basic Auth",
+			"item": [
+				{
+					"name": "GET Adverts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET One Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Adverts Sorted By Price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts?sortBy=price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Delete Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
 							]
 						}
 					},
