@@ -41,6 +41,7 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("javax.servlet:javax.servlet-api:4.0.1")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
 }
 
 tasks.withType<Test> {

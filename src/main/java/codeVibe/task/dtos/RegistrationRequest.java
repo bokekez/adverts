@@ -6,18 +6,15 @@ public class RegistrationRequest {
     private String password;
     private String email;
 
-    // Default constructor
     public RegistrationRequest() {
     }
 
-    // Parameterized constructor
     public RegistrationRequest(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
     }
 
-    // Getters and setters
     public String getUsername() {
         return username;
     }
