@@ -18,5 +18,3 @@ Open your Postman app and create a new workspace. You can then import the CodeVi
 Basic Auth routes will work once the collection is loaded.
 
 To enable the JWT bearer token, go to "Environments" and add a new environment, then add a variable called "jwtToken." Next, under "Collections," select the new environment for storing variables. This should automate the JWT signing process. If this doesn’t work, you can copy and paste the token you get from registering/logging in into the "Token" input under Authorization.
-
-To access the swagger documentation open this link in your broweser: http://localhost:8080/swagger-ui.html
