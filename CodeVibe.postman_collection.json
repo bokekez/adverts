@@ -1,0 +1,2242 @@
+{
+	"info": {
+		"_postman_id": "ae15bd57-5ce1-4682-87e3-1d5e8dfe7b4e",
+		"name": "CodeVibe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"jwtToken\", jsonData.jwtToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"testuser22\",\n  \"password\": \"testpassword22\",\n  \"email\": \"testemail\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"testuser22\",\n  \"password\": \"testpassword22\",\n  \"email\": \"testemail\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:21:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwtToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjIyIiwiaWF0IjoxNzI1MDA5NjgyLCJleHAiOjE3MjUwNDU2ODJ9.91dAo3a4bBYrSM1utND9cA8Hl-2n9j1L1AwkY94t0HQ\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.environment.set(\"jwtToken\", jsonData.jwtToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Admin\",\n  \"password\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"Admin\",\n  \"password\": \"Admin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:21:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwtToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTcyNTAwOTY3OCwiZXhwIjoxNzI1MDQ1Njc4fQ.JSMzqRwIEhoH9ksyo4WDxZ57No17dk7qDuxngy-O7kY\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adverts",
+			"item": [
+				{
+					"name": "GET Adverts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Adverts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Car A\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 15000,\n        \"mileage\": 5000,\n        \"firstRegistration\": \"2022-01-15\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Car B\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 18000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2020-03-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Car D\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 22000,\n        \"mileage\": 8000,\n        \"firstRegistration\": \"2021-07-05\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Car E\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 14000,\n        \"mileage\": 4000,\n        \"firstRegistration\": \"2022-12-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Car F\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 16000,\n        \"mileage\": 15000,\n        \"firstRegistration\": \"2019-08-22\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Car G\",\n        \"fuelType\": \"Electric\",\n        \"price\": 30000,\n        \"mileage\": 1000,\n        \"firstRegistration\": \"2023-02-18\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Car H\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 19000,\n        \"mileage\": 9500,\n        \"firstRegistration\": \"2021-11-30\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Car I\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 13000,\n        \"mileage\": 7000,\n        \"firstRegistration\": \"2022-04-25\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Car J\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 17000,\n        \"mileage\": 13000,\n        \"firstRegistration\": \"2020-10-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:27:34.909+00:00\",\n        \"updatedAt\": \"2024-08-30T08:27:34.913+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": 33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T08:28:09.976+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:47:41.455+00:00\",\n        \"updatedAt\": \"2024-08-30T08:47:41.459+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:52:02.820+00:00\",\n        \"updatedAt\": \"2024-08-30T08:52:02.822+00:00\",\n        \"new\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET One Advert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET One Advert",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:18:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"updatedAt\": \"2024-08-30T08:28:09.976+00:00\",\n    \"new\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "GET One Advert Second Example",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET One Advert Second Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"title\": \"Car G\",\n    \"fuelType\": \"Electric\",\n    \"price\": 30000,\n    \"mileage\": 1000,\n    \"firstRegistration\": \"2023-02-18\",\n    \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"new\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "POST Create Advert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST Create Advert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 14,\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08T00:00:00.000+00:00\",\n    \"createdAt\": null,\n    \"updatedAt\": null,\n    \"new\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "POST Create Advert Error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": -50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST Create Advert Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": -50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "Price and mileage must not be negative."
+						}
+					]
+				},
+				{
+					"name": "PUT Update Advert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT Update Advert",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20T00:00:00.000+00:00\",\n    \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"updatedAt\": null,\n    \"new\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT Update Advert Error",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": -33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"10"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT Update Advert Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": -33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"10"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:19:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Price, mileage, and ID must not be negative."
+						}
+					]
+				},
+				{
+					"name": "GET Adverts Sorted By Price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts?sortBy=price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Adverts Sorted By Price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts?sortBy=price",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "price"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 10,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": -33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:59.504+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Car I\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 13000,\n        \"mileage\": 7000,\n        \"firstRegistration\": \"2022-04-25\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Car E\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 14000,\n        \"mileage\": 4000,\n        \"firstRegistration\": \"2022-12-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 1,\n        \"title\": \"Car A\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 15000,\n        \"mileage\": 5000,\n        \"firstRegistration\": \"2022-01-15\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Car F\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 16000,\n        \"mileage\": 15000,\n        \"firstRegistration\": \"2019-08-22\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Car B\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 18000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2020-03-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Car H\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 19000,\n        \"mileage\": 9500,\n        \"firstRegistration\": \"2021-11-30\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Car D\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 22000,\n        \"mileage\": 8000,\n        \"firstRegistration\": \"2021-07-05\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Car G\",\n        \"fuelType\": \"Electric\",\n        \"price\": 30000,\n        \"mileage\": 1000,\n        \"firstRegistration\": \"2023-02-18\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": 33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:49.564+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:27:34.909+00:00\",\n        \"updatedAt\": \"2024-08-30T08:27:34.913+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:47:41.455+00:00\",\n        \"updatedAt\": \"2024-08-30T08:47:41.459+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:52:02.820+00:00\",\n        \"updatedAt\": \"2024-08-30T08:52:02.822+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T09:19:30.666+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:30.668+00:00\",\n        \"new\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Adverts Sorted By First Registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts?sortBy=firstRegistration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "firstRegistration"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Adverts Sorted By First Registration",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts?sortBy=firstRegistration",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "firstRegistration"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Car A\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 15000,\n        \"mileage\": 5000,\n        \"firstRegistration\": \"2022-01-15\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Car B\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 18000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2020-03-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": 33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:49.564+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Car D\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 22000,\n        \"mileage\": 8000,\n        \"firstRegistration\": \"2021-07-05\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Car E\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 14000,\n        \"mileage\": 4000,\n        \"firstRegistration\": \"2022-12-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Car F\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 16000,\n        \"mileage\": 15000,\n        \"firstRegistration\": \"2019-08-22\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Car G\",\n        \"fuelType\": \"Electric\",\n        \"price\": 30000,\n        \"mileage\": 1000,\n        \"firstRegistration\": \"2023-02-18\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Car H\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 19000,\n        \"mileage\": 9500,\n        \"firstRegistration\": \"2021-11-30\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Car I\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 13000,\n        \"mileage\": 7000,\n        \"firstRegistration\": \"2022-04-25\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 10,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": -33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:59.504+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:27:34.909+00:00\",\n        \"updatedAt\": \"2024-08-30T08:27:34.913+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:47:41.455+00:00\",\n        \"updatedAt\": \"2024-08-30T08:47:41.459+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:52:02.820+00:00\",\n        \"updatedAt\": \"2024-08-30T08:52:02.822+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T09:19:30.666+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:30.668+00:00\",\n        \"new\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "DELETE Delete Advert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE Delete Advert",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"10"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"Admin\",\n        \"password\": \"Admin\",\n        \"email\": \"Admin@admin.com\",\n        \"createdAt\": \"2024-08-30T07:35:16.877+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.877+00:00\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Admin2\",\n        \"password\": \"Admin2\",\n        \"email\": \"Admin2@admin.com\",\n        \"createdAt\": \"2024-08-30T07:35:16.877+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.877+00:00\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T07:37:17.849+00:00\",\n        \"updatedAt\": \"2024-08-30T07:37:17.849+00:00\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T07:38:59.284+00:00\",\n        \"updatedAt\": \"2024-08-30T07:38:59.284+00:00\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T07:40:58.476+00:00\",\n        \"updatedAt\": \"2024-08-30T07:40:58.476+00:00\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T07:48:07.051+00:00\",\n        \"updatedAt\": \"2024-08-30T07:48:07.051+00:00\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T07:56:29.839+00:00\",\n        \"updatedAt\": \"2024-08-30T07:56:29.839+00:00\"\n    },\n    {\n        \"id\": 8,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:23:21.010+00:00\",\n        \"updatedAt\": \"2024-08-30T08:23:21.010+00:00\"\n    },\n    {\n        \"id\": 9,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:33:05.238+00:00\",\n        \"updatedAt\": \"2024-08-30T08:33:05.238+00:00\"\n    },\n    {\n        \"id\": 10,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:35:53.031+00:00\",\n        \"updatedAt\": \"2024-08-30T08:35:53.031+00:00\"\n    },\n    {\n        \"id\": 11,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:36:43.309+00:00\",\n        \"updatedAt\": \"2024-08-30T08:36:43.309+00:00\"\n    },\n    {\n        \"id\": 12,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:45:14.261+00:00\",\n        \"updatedAt\": \"2024-08-30T08:45:14.261+00:00\"\n    },\n    {\n        \"id\": 13,\n        \"username\": \"testuser22\",\n        \"password\": \"testpassword22\",\n        \"email\": \"testemail\",\n        \"createdAt\": \"2024-08-30T08:51:58.942+00:00\",\n        \"updatedAt\": \"2024-08-30T08:51:58.942+00:00\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Adverts Basic Auth",
+			"item": [
+				{
+					"name": "GET Adverts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Adverts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Car A\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 15000,\n        \"mileage\": 5000,\n        \"firstRegistration\": \"2022-01-15\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Car B\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 18000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2020-03-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Car D\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 22000,\n        \"mileage\": 8000,\n        \"firstRegistration\": \"2021-07-05\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Car E\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 14000,\n        \"mileage\": 4000,\n        \"firstRegistration\": \"2022-12-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Car F\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 16000,\n        \"mileage\": 15000,\n        \"firstRegistration\": \"2019-08-22\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Car G\",\n        \"fuelType\": \"Electric\",\n        \"price\": 30000,\n        \"mileage\": 1000,\n        \"firstRegistration\": \"2023-02-18\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Car H\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 19000,\n        \"mileage\": 9500,\n        \"firstRegistration\": \"2021-11-30\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 9,\n        \"title\": \"Car I\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 13000,\n        \"mileage\": 7000,\n        \"firstRegistration\": \"2022-04-25\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:27:34.909+00:00\",\n        \"updatedAt\": \"2024-08-30T08:27:34.913+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:47:41.455+00:00\",\n        \"updatedAt\": \"2024-08-30T08:47:41.459+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:52:02.820+00:00\",\n        \"updatedAt\": \"2024-08-30T08:52:02.822+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T09:19:30.666+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:30.668+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": 33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:49.564+00:00\",\n        \"new\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET One Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET One Advert",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"updatedAt\": \"2024-08-30T09:19:49.564+00:00\",\n    \"new\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Adverts Sorted By Price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"Stored Token:\", pm.environment.get(\"jwtToken\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/adverts?sortBy=price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "price"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Adverts Sorted By Price",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/adverts?sortBy=price",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									],
+									"query": [
+										{
+											"key": "sortBy",
+											"value": "price"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 9,\n        \"title\": \"Car I\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 13000,\n        \"mileage\": 7000,\n        \"firstRegistration\": \"2022-04-25\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Car E\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 14000,\n        \"mileage\": 4000,\n        \"firstRegistration\": \"2022-12-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 1,\n        \"title\": \"Car A\",\n        \"fuelType\": \"Petrol\",\n        \"price\": 15000,\n        \"mileage\": 5000,\n        \"firstRegistration\": \"2022-01-15\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 6,\n        \"title\": \"Car F\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 16000,\n        \"mileage\": 15000,\n        \"firstRegistration\": \"2019-08-22\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Car B\",\n        \"fuelType\": \"Diesel\",\n        \"price\": 18000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2020-03-10\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Car H\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 19000,\n        \"mileage\": 9500,\n        \"firstRegistration\": \"2021-11-30\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Car D\",\n        \"fuelType\": \"Hybrid\",\n        \"price\": 22000,\n        \"mileage\": 8000,\n        \"firstRegistration\": \"2021-07-05\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Car G\",\n        \"fuelType\": \"Electric\",\n        \"price\": 30000,\n        \"mileage\": 1000,\n        \"firstRegistration\": \"2023-02-18\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"new\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Car C\",\n        \"fuelType\": \"Electric\",\n        \"price\": 33000,\n        \"mileage\": 12000,\n        \"firstRegistration\": \"2023-06-20\",\n        \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:49.564+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 14,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T09:19:30.666+00:00\",\n        \"updatedAt\": \"2024-08-30T09:19:30.668+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 12,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:47:41.455+00:00\",\n        \"updatedAt\": \"2024-08-30T08:47:41.459+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 11,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:27:34.909+00:00\",\n        \"updatedAt\": \"2024-08-30T08:27:34.913+00:00\",\n        \"new\": false\n    },\n    {\n        \"id\": 13,\n        \"title\": \"Car Test\",\n        \"fuelType\": \"Electric\",\n        \"price\": 50000,\n        \"mileage\": 10,\n        \"firstRegistration\": \"2024-09-08\",\n        \"createdAt\": \"2024-08-30T08:52:02.820+00:00\",\n        \"updatedAt\": \"2024-08-30T08:52:02.822+00:00\",\n        \"new\": false\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "POST Create Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST Create Advert",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:20:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"title\": \"Car Test\",\n    \"fuelType\": \"Electric\",\n    \"price\": 50000,\n    \"mileage\": 10,\n    \"firstRegistration\": \"2024-09-08T00:00:00.000+00:00\",\n    \"createdAt\": null,\n    \"updatedAt\": null,\n    \"new\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Delete Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"17"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE Delete Advert",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"9"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:21:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "PUT Update Advert",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "codeVibe",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codeVibe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/adverts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"adverts",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT Update Advert",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20\",\n    \"new\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/adverts/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"adverts",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 30 Aug 2024 09:21:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"title\": \"Car C\",\n    \"fuelType\": \"Electric\",\n    \"price\": 33000,\n    \"mileage\": 12000,\n    \"firstRegistration\": \"2023-06-20T00:00:00.000+00:00\",\n    \"createdAt\": \"2024-08-30T07:35:16.875+00:00\",\n    \"updatedAt\": null,\n    \"new\": false\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

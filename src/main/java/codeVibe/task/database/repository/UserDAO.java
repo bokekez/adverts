@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -129,5 +131,26 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
+    public Optional<Users> findByUsername(String username) {
+        String query = "SELECT * FROM users WHERE username = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Users user = new Users(
+                        rs.getLong("id"),
+                        rs.getString("username"),
+                        rs.getString("password")
+                    );
+                    return Optional.of(user);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
+    }
+
 }
 
