@@ -1,14 +1,19 @@
 Requirements:
 
 Java 17
+
 Gradle
+
 Postman
+
 Docker
 
 Run these commands to start the project:
 
 docker compose
+
 ./gradlew clean build
+
 ./gradlew bootRun
 
 Your project should now have created a Docker image, a PostgreSQL database, tables, and populated the tables with predefined data. Additionally, your project should now be ready to accept requests.
