@@ -18,7 +18,7 @@ docker compose
 
 Your project should now have created a Docker image, a PostgreSQL database, tables, and populated the tables with predefined data. Additionally, your project should now be ready to accept requests.
 
-Open your Postman app and create a new workspace. You can then import the CodeVibe.postman_collection.json from this repository, and all the test routes should be loaded into your Postman workspace.
+Open your Postman app and create a new workspace. You can then import the Adverts.postman_collection.json from this repository, and all the test routes should be loaded into your Postman workspace.
 
 Basic Auth routes will work once the collection is loaded.
 
